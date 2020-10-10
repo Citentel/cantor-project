@@ -56,7 +56,7 @@ class Converter extends Component {
             response : {
                 amount : data.amount,
                 conversionRate : conversionRate,
-                result : data.amount * conversionRate
+                result : this.roundNum((data.amount * conversionRate), 2)
             }
         })
     }
