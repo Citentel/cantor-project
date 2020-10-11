@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Converter from './components/Converter';
+import Loader from './components/Loader';
 import "./static/css/app.css";
 
 class App extends Component {
@@ -37,20 +38,14 @@ class App extends Component {
     }
 
     render = () => {
-        if (this.state.isLoading === true) {
-            return(
-                <p>Loading...</p>
-            );
-        } else {
-            return(
-                <div className="app">
-                    <div className="app__box">
-                        <h1 className="app__box--h1">Kalkulator walutowy</h1>
-                        <Converter data={this.state.json} />
-                    </div>
+        return(
+            <div className="app">
+                <div className="app__box">
+                    <h1 className="app__box--h1">Kalkulator walutowy</h1>
+                    { this.state.isLoading === true ? <Loader /> : <Converter data={this.state.json} /> }
                 </div>
-            );
-        }
+            </div>
+        );
     }
 }
 
